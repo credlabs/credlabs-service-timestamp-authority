@@ -16,11 +16,7 @@ type CredlabsTimestampResponse struct {
 	Status *string `json:"status"`
 }
 
-func main() {
-	lambda.Start(HandleRequest)
-}
-
-func HandleRequest(ctx context.Context, request *CredlabsTimestampRequest) (*CredlabsTimestampResponse, error) {
+func HandleRequest(request *CredlabsTimestampRequest) (*CredlabsTimestampResponse, error) {
 	log.Println("Hello World!")
 
 	json_msg, err := json.Marshal(request)
@@ -39,4 +35,9 @@ func HandleRequest(ctx context.Context, request *CredlabsTimestampRequest) (*Cre
 	}
 
 	return &response, nil
+}
+
+func main() {
+	log.Println("Version: 1")
+	lambda.Start(HandleRequest)
 }
