@@ -13,10 +13,10 @@ func main() {
 	lambda.Start(HandleRequest)
 }
 
-func HandleRequest(ctx context.Context, event events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	log.Println("Hello World!")
 
-	json_msg, err := json.Marshal(event)
+	json_msg, err := json.Marshal(request)
 
 	if err == nil {
 			panic(err)
