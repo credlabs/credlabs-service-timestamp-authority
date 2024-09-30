@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"context"
 	"encoding/json"
 	"github.com/aws/aws-lambda-go/lambda"
 )
