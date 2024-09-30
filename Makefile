@@ -78,6 +78,7 @@ timestamp-cli: $(SRCS) ## Build the TSA CLI
 
 timestamp-server: $(SRCS) ## Build the TSA server
 	CGO_ENABLED=0 go build -trimpath -ldflags "$(SERVER_LDFLAGS)" -o bin/timestamp-server ./cmd/timestamp-server
+	CGO_ENABLED=0 go build -trimpath -ldflags "$(SERVER_LDFLAGS)" -o bin/timestamp-lambda ./cmd/timestamp-lambda
 
 test: timestamp-cli ## Run tests
 	go test ./...
