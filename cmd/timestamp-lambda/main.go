@@ -20,7 +20,7 @@ func main() {
 	lambda.Start(HandleRequest)
 }
 
-func HandleRequest(ctx context.Context, request CredlabsTimestampRequest) (CredlabsTimestampResponse, error) {
+func HandleRequest(ctx context.Context, request *CredlabsTimestampRequest) (*CredlabsTimestampResponse, error) {
 	log.Println("Hello World!")
 
 	json_msg, err := json.Marshal(request)
@@ -38,5 +38,5 @@ func HandleRequest(ctx context.Context, request CredlabsTimestampRequest) (Credl
 			Status: &status,
 	}
 
-	return response, nil
+	return &response, nil
 }
