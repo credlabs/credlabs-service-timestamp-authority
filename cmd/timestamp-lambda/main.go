@@ -9,11 +9,11 @@ import (
 )
 
 type CredlabsTimestampRequest struct {
-	Name string `json:"name"`
+	Name *string `json:"name"`
 }
 
 type CredlabsTimestampResponse struct {
-	Status string `json:"status"`
+	Status *string `json:"status"`
 }
 
 func main() {
@@ -32,8 +32,10 @@ func HandleRequest(ctx context.Context, request CredlabsTimestampRequest) (Credl
 	str := string(json_msg)
 	fmt.Println(str)
 
+	status := "success"
+
 	response := CredlabsTimestampResponse{
-			Status: "success",
+			Status: &status,
 	}
 
 	return response, nil
