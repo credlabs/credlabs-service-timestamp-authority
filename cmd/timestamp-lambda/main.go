@@ -5,15 +5,22 @@ import (
 	"log"
 	"context"
 	"encoding/json"
-	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
+
+type CredlabsTimestampRequest struct {
+	Name string `json:"name"`
+}
+
+type CredlabsTimestampResponse struct {
+	Status string `json:"status"`
+}
 
 func main() {
 	lambda.Start(HandleRequest)
 }
 
-func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func HandleRequest(ctx context.Context, request CredlabsTimestampRequest) (CredlabsTimestampResponse, error) {
 	log.Println("Hello World!")
 
 	json_msg, err := json.Marshal(request)
@@ -25,8 +32,8 @@ func HandleRequest(ctx context.Context, request events.APIGatewayProxyRequest) (
 	str := string(json_msg)
 	fmt.Println(str)
 
-	response := events.APIGatewayProxyResponse{
-			StatusCode: 200,
+	response := CredlabsTimestampResponse{
+			Status: "success",
 	}
 
 	return response, nil
