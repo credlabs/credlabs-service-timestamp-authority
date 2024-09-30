@@ -6,11 +6,15 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-type MyEvent struct {
+type CredlabsTimestampRequest struct {
 	Name string `json:"name"`
 }
 
-func HandleRequest(ctx context.Context, event *MyEvent) (*string, error) {
+type CredlabsTimestampResponse struct {
+	Status string `json:"status"`
+}
+
+func HandleRequest(ctx context.Context, event *CredlabsTimestampRequest) (*string, error) {
 	if event == nil {
 		return nil, fmt.Errorf("received nil event")
 	}
