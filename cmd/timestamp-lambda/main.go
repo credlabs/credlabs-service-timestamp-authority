@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"encoding/json"
-	//"github.com/aws/aws-lambda-go/lambda"
+	//"encoding/json"
+	"github.com/aws/aws-lambda-go/lambda"
 )
 
 type CredlabsTimestampRequest struct {
